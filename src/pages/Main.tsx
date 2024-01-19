@@ -1,9 +1,11 @@
-import React from 'react'
+import Introduce from "components/Introduce";
 
 const Main = () => {
-  return (
-    <div>Main</div>
-  )
-}
+	return (
+		<div className="flex justify-center items-center w-screen h-screen bg-summonersRift bg-no-repeat bg-center">
+			<Introduce />
+		</div>
+	);
+};
 
-export default Main
+export default Main;

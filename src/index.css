@@ -22,6 +22,6 @@
     overflow-x: hidden;
   }
   h1 {
-    @apply text-3xl
+    @apply text-4xl
   }
 }
