@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'OAGothic-ExtraBold';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/OAGothic-ExtraBold.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@layer base {
+  body {
+    background: linear-gradient(0deg, rgba(25,29,34,1) 0%, rgba(29,33,38,1) 37%, rgba(44,48,53,1) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 100vh;
+    height: 100vh;
+    overflow-x: hidden;
+  }
+  h1 {
+    @apply text-3xl
+  }
+}
