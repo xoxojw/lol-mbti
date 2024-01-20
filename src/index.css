@@ -33,4 +33,22 @@
   h2 {
     @apply text-2xl lg:text-4xl
   }
+
+  h3 {
+    @apply text-lg lg:text-2xl
+  }
+
+  @keyframes loading-pulse-animation {
+    0%, 100% {
+      opacity: 0;
+    }
+
+    50% {
+      opacity: 1;
+    }
+  }
+
+  .loading-text-pulse {
+    animation: loading-pulse-animation 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
 }

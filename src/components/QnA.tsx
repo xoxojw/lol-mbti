@@ -8,6 +8,7 @@ import { QuestionType } from "types";
 import { motion } from "framer-motion";
 import { RiArrowLeftLine, RiHome2Line } from "@remixicon/react";
 import ProgressBar from "./ProgressBar";
+import Loading from "./Loading";
 
 const QnA = () => {
 	const navigate = useNavigate();
@@ -22,7 +23,7 @@ const QnA = () => {
 		queryFn: getQnAList,
 	});
 
-	if (isLoading) return <h2>로딩 중 입니다.</h2>;
+	if (isLoading) return <Loading />;
 	if (isError) return <h2>에러가 발생했습니다.</h2>;
 
 	const handleBackBtnClick = (num: number) => {
