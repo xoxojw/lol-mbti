@@ -3,16 +3,24 @@ import { useState } from "react";
 
 import { useQuery } from "@tanstack/react-query";
 import { getQnAList } from "api";
-import { QuestionType } from "types";
 
 import { motion } from "framer-motion";
 import { RiArrowLeftLine, RiHome2Line } from "@remixicon/react";
 import ProgressBar from "./ProgressBar";
 import Loading from "./Loading";
 
+import { QuestionType, UserAnswerDataType } from "types";
+
 const QnA = () => {
 	const navigate = useNavigate();
 	const [num, setNum] = useState<number>(1);
+
+	const [answerData, setAnswerData] = useState<UserAnswerDataType[]>([
+		{ category: "IE", answerOption: { "I": 0, "E": 0 } },
+		{ category: "SN", answerOption: { "S": 0, "N": 0 } },
+		{ category: "TF", answerOption: { "T": 0, "F": 0 } },
+		{ category: "JP", answerOption: { "J": 0, "P": 0 } },
+	]);
 
 	const {
 		isLoading,
@@ -21,6 +29,7 @@ const QnA = () => {
 	} = useQuery<QuestionType[]>({
 		queryKey: ["questions"],
 		queryFn: getQnAList,
+		staleTime: Infinity,
 	});
 
 	if (isLoading) return <Loading />;
@@ -28,6 +37,8 @@ const QnA = () => {
 
 	const handleBackBtnClick = (num: number) => {
 		if (num === 1) navigate("/");
+		
+		// 결과수집 데이터 롤백 로직
 
 		setNum((currentNum) => currentNum - 1);
 	};
@@ -37,8 +48,9 @@ const QnA = () => {
 		if (ok) navigate("/");
 	};
 
-	const handleAnswerClick = (option: string) => {
+	const handleAnswerClick = (category: "IE" | "SN" | "TF" | "JP", option: string) => {
 		// 결과를 위한 옵션 계산 처리
+		console.log(category, option, answerData);
 
 		// 현재 질문이 12번이면 -> 결과를 수집중이에요 -> 결과 페이지로 이동
 		if (num === 12) navigate("/result");
@@ -47,8 +59,7 @@ const QnA = () => {
 		setNum((prevNum) => prevNum + 1);
 	};
 
-	// console.log(questionsList);
-	// console.log(num);
+	// console.log(questionsList![num-1])
 
 	return (
 		<div className="px-5 flex flex-col relative mx-auto w-full max-w-[45rem] min-h-screen justify-between">
@@ -93,13 +104,13 @@ const QnA = () => {
 									y: 0,
 									transition: { duration: 1, delay: 0.5 },
 								}}
-								className="flex flex-col gap-5 w-full mb-20 lg:mb-32"
+								className="flex flex-col gap-5 lg:gap-8 w-full mb-20 lg:mb-32"
 							>
 								{question.a.map((answer, idx) => (
 									<li
-										className="cursor-pointer flex flex-col gap-1 border-solid border rounded-lg border-neutral-500 py-3 lg:py-5 px-5"
+										className="cursor-pointer flex flex-col gap-2 border-solid border-2 rounded-lg border-neutral-500 py-3 lg:py-5 px-5 hover:border-stone-300 hover:border-2 hover:bg-neutral-500 hover:-translate-y-1 duration-200 ease-in-out"
 										key={`${answer.option}${idx}`}
-										onClick={() => handleAnswerClick(answer.option)}
+										onClick={() => handleAnswerClick(question.type, answer.option)}
 									>
 										<span className="italic lg:text-base text-sm text-neutral-400">
 											{answer.dialogue}
