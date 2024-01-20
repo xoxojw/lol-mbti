@@ -15,7 +15,9 @@ const Test = () => {
   }, []);
 
   return (
-    <QnA />
+    <>
+      <QnA />
+    </>
   )
 }
 

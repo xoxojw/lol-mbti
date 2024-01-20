@@ -1,16 +1,16 @@
 export interface QuestionsListType {
-  questions: QuestionType[]
+  lists: QuestionType[];
 }
 
 export interface QuestionType {
   num: number;
   type: string;
   q: string;
-  a: [
-    {
-      option: string;
-      dialogue: string;
-      text: string;
-    }
-  ]
+  a: AnswerType[];
+}
+
+export interface AnswerType {
+  option: string;
+  dialogue: string;
+  text: string;
 }
