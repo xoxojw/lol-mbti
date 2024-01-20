@@ -11,13 +11,13 @@ const Introduce = () => {
       >
         <motion.img
           src={logo}
-          className="w-44 lg:w-60"
+          className="w-44 lg:h-full"
           alt="리그 오브 레전드 로고"
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0, transition: { duration: 1 } }}
         />
         <motion.h1
-          className="lg:text-6xl text-gray-100 font-OAGothicExtraBold text-center"
+          className="text-gray-100 font-OAGothicExtraBold text-center"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0, transition: { duration: 1 } }}
         >
