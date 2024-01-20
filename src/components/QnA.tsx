@@ -72,7 +72,7 @@ const QnA = () => {
 				(question: QuestionType) =>
 					question.num === num && (
 						<motion.div
-							className="flex flex-col flex-grow w-full justify-center lg:gap-20 gap-10 mb-10 lg:mb-0"
+							className="flex flex-col flex-grow w-full justify-center lg:gap-20 gap-10 mb-14 lg:mb-0"
 							key={question.num}
 						>
 							<motion.div
@@ -96,7 +96,7 @@ const QnA = () => {
 							>
 								{question.a.map((answer, idx) => (
 									<li
-										className="cursor-pointer flex flex-col gap-1 border-solid border border-neutral-500 py-3 lg:py-5 px-5"
+										className="cursor-pointer flex flex-col gap-1 border-solid border rounded-lg border-neutral-500 py-3 lg:py-5 px-5"
 										key={`${answer.option}${idx}`}
 										onClick={() => handleAnswerClick(answer.option)}
 									>
