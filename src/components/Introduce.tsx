@@ -5,7 +5,7 @@ import logo from "../assets/logo.png";
 const Introduce = () => {
   const navigate = useNavigate();
   return (
-    <div className="flex flex-col gap-y-12 mb-10 lg:mb-0">
+    <div className="flex flex-col gap-y-12 mb-10 lg:mb-0 select-none">
       <motion.header
         className="flex flex-col items-center gap-5"
       >
