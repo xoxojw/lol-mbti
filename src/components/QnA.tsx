@@ -70,7 +70,7 @@ const QnA = () => {
 					(question: QuestionType) =>
 						question.num === num && (
 							<motion.div
-								className="flex flex-col flex-grow w-full justify-center lg:gap-20 gap-16"
+								className="flex flex-col flex-grow w-full justify-center lg:gap-20 gap-16 mb-10 lg:mb-0"
 								key={question.num}
 							>
 								<motion.div
