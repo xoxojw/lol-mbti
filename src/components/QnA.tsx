@@ -3,10 +3,11 @@ import { useState } from "react";
 
 import { useQuery } from "@tanstack/react-query";
 import { getQnAList } from "api";
-import { QuestionType, QuestionsListType } from "types";
+import { QuestionType } from "types";
 
 import { motion } from "framer-motion";
 import { RiArrowLeftLine, RiHome2Line } from "@remixicon/react";
+import ProgressBar from "./ProgressBar";
 
 const QnA = () => {
 	const navigate = useNavigate();
@@ -16,10 +17,13 @@ const QnA = () => {
 		isLoading,
 		isError,
 		data: questionsList,
-	} = useQuery<QuestionsListType>({
+	} = useQuery<QuestionType[]>({
 		queryKey: ["questions"],
 		queryFn: getQnAList,
 	});
+
+	if (isLoading) return <h2>로딩 중 입니다.</h2>;
+	if (isError) return <h2>에러가 발생했습니다.</h2>;
 
 	const handleBackBtnClick = (num: number) => {
 		if (num === 1) navigate("/");
@@ -42,10 +46,8 @@ const QnA = () => {
 		setNum((prevNum) => prevNum + 1);
 	};
 
-	if (isLoading) return <h2>로딩 중 입니다.</h2>;
-	if (isError) return <h2>에러가 발생했습니다.</h2>;
-
 	// console.log(questionsList);
+	// console.log(num);
 
 	return (
 		<div className="px-5 flex flex-col relative mx-auto w-full max-w-[45rem] min-h-screen justify-between">
@@ -59,51 +61,55 @@ const QnA = () => {
 					</li>
 					<li
 						onClick={handleHomeBtnClick}
-						className="cursor-pointer">
+						className="cursor-pointer"
+					>
 						<RiHome2Line />
 					</li>
 				</ul>
 			</nav>
-			<div className="w-full">프로그레스 바</div>
-			{Array.isArray(questionsList) &&
-				questionsList.map(
-					(question: QuestionType) =>
-						question.num === num && (
+			<ProgressBar currentNum={num} listLength={questionsList?.length} />
+			{questionsList?.map(
+				(question: QuestionType) =>
+					question.num === num && (
+						<motion.div
+							className="flex flex-col flex-grow w-full justify-center lg:gap-20 gap-10 mb-10 lg:mb-0"
+							key={question.num}
+						>
 							<motion.div
-								className="flex flex-col flex-grow w-full justify-center lg:gap-20 gap-16 mb-10 lg:mb-0"
-								key={question.num}
+								className="flex flex-col lg:gap-2 gap-1"
+								initial={{ opacity: 0, y: -50 }}
+								animate={{ opacity: 1, y: 0, transition: { duration: 1 } }}
 							>
-								<motion.div
-									className="flex flex-col lg:gap-2 gap-1"
-									initial={{ opacity: 0, y: -50 }}
-									animate={{ opacity: 1, y: 0, transition: { duration: 1 } }}
-								>
-									<span className="text-2xl lg:text-4xl text-neutral-600">
-										{question.num}.
-									</span>
-									<h2>{question.q}</h2>
-								</motion.div>
-								<motion.ul
-									initial={{ opacity: 0, y: -50 }}
-									animate={{ opacity: 1, y: 0, transition: { duration: 1, delay: 0.5 } }}
-									className="flex flex-col gap-5 w-full mb-20 lg:mb-32"
-								>
-									{question.a.map((answer, idx) => (
-										<li
-											className="cursor-pointer flex flex-col gap-1 border-solid border border-neutral-500 py-3 lg:py-5 px-5"
-											key={`${answer.option}${idx}`}
-											onClick={() => handleAnswerClick(answer.option)}
-										>
-											<span className="italic lg:text-base text-sm text-neutral-400">
-												{answer.dialogue}
-											</span>
-											<span className="lg:text-xl">{answer.text}</span>
-										</li>
-									))}
-								</motion.ul>
+								<span className="text-2xl lg:text-4xl text-neutral-600">
+									{question.num}.
+								</span>
+								<h2>{question.q}</h2>
 							</motion.div>
-						)
-				)}
+							<motion.ul
+								initial={{ opacity: 0, y: -50 }}
+								animate={{
+									opacity: 1,
+									y: 0,
+									transition: { duration: 1, delay: 0.5 },
+								}}
+								className="flex flex-col gap-5 w-full mb-20 lg:mb-32"
+							>
+								{question.a.map((answer, idx) => (
+									<li
+										className="cursor-pointer flex flex-col gap-1 border-solid border border-neutral-500 py-3 lg:py-5 px-5"
+										key={`${answer.option}${idx}`}
+										onClick={() => handleAnswerClick(answer.option)}
+									>
+										<span className="italic lg:text-base text-sm text-neutral-400">
+											{answer.dialogue}
+										</span>
+										<span className="lg:text-xl">{answer.text}</span>
+									</li>
+								))}
+							</motion.ul>
+						</motion.div>
+					)
+			)}
 		</div>
 	);
 };

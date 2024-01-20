@@ -1,7 +1,7 @@
-import { QuestionsListType } from "types";
+import { QuestionType } from "types";
 import api from "../libs/axios";
 
-const getQnAList = async (): Promise<QuestionsListType> => {
+const getQnAList = async (): Promise<QuestionType[]> => {
   const res = await api.get(`/question-list`);
   return res.data;
 };

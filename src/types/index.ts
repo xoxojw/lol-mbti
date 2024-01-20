@@ -1,7 +1,3 @@
-export interface QuestionsListType {
-  lists: QuestionType[];
-}
-
 export interface QuestionType {
   num: number;
   type: string;
