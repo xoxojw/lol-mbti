@@ -5,7 +5,7 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        summonersRift: "url('./assets/summoners_rift.png')"
+        summonersRift: "url('./assets/summoners_rift.webp')"
       },
     },
     fontFamily: {

@@ -3,7 +3,7 @@ import Footer from "components/Footer";
 
 const Main = () => {
 	return (
-		<div className="flex flex-col justify-center items-center w-screen h-screen bg-summonersRift bg-no-repeat bg-center">
+		<div className="flex flex-col justify-center items-center w-screen h-screen bg-summonersRift bg-no-repeat bg-center" role="img">
 			<Introduce />
 			<Footer />
 		</div>
