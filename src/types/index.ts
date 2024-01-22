@@ -10,10 +10,3 @@ export interface AnswerType {
   dialogue: string;
   text: string;
 }
-
-export interface UserAnswerDataType {
-  category: "IE" | "SN" | "TF" | "JP";
-  answerOption: {
-    [key: string]: number;
-  }
-}

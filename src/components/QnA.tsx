@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 import { useQuery } from "@tanstack/react-query";
 import { getQnAList } from "api";
@@ -9,18 +9,13 @@ import { RiArrowLeftLine, RiHome2Line } from "@remixicon/react";
 import ProgressBar from "./ProgressBar";
 import Loading from "./Loading";
 
-import { QuestionType, UserAnswerDataType } from "types";
+import { QuestionType } from "types";
 
 const QnA = () => {
 	const navigate = useNavigate();
 	const [num, setNum] = useState<number>(1);
-
-	const [answerData, setAnswerData] = useState<UserAnswerDataType[]>([
-		{ category: "IE", answerOption: { "I": 0, "E": 0 } },
-		{ category: "SN", answerOption: { "S": 0, "N": 0 } },
-		{ category: "TF", answerOption: { "T": 0, "F": 0 } },
-		{ category: "JP", answerOption: { "J": 0, "P": 0 } },
-	]);
+	const [answers, setAnswers] = useState<string>("");
+	const [result, setResult] = useState<string | null>(null);
 
 	const {
 		isLoading,
@@ -32,34 +27,60 @@ const QnA = () => {
 		staleTime: Infinity,
 	});
 
-	if (isLoading) return <Loading />;
-	if (isError) return <h2>에러가 발생했습니다.</h2>;
+	useEffect(() => {
+		if (num > 12 && answers !== null) {
+			// 결과를 수집하고 있어요 화면 보여주기
 
-	const handleBackBtnClick = (num: number) => {
-		if (num === 1) navigate("/");
-		
-		// 결과수집 데이터 롤백 로직
+			let mbti = "";
+			// 결과 계산
+			// 1. I/E
+			if (answers.split("I").length / answers.split("E").length > 1)
+				mbti += "I";
+			else mbti += "E";
 
-		setNum((currentNum) => currentNum - 1);
-	};
+			// 2. S/N
+			if (answers.split("S").length / answers.split("N").length > 1)
+				mbti += "S";
+			else mbti += "N";
+
+			// 3. T/F
+			if (answers.split("T").length / answers.split("F").length > 1)
+				mbti += "T";
+			else mbti += "F";
+
+			// 4. J/P
+			if (answers.split("J").length / answers.split("P").length > 1)
+				mbti += "J";
+			else mbti += "P";
+
+			setResult(mbti);
+		}
+
+		// `/result/${result}`로 쿼리 넘기기
+	}, [num, answers]);
+
+	const handleBackBtnClick = useCallback((currentNum: number) => {
+		if (currentNum === 1) navigate("/");
+
+		setAnswers((prevAnswers) => prevAnswers.slice(0, -1));
+
+		setNum((prevNum) => prevNum - 1);
+	}, [navigate]);
 
 	const handleHomeBtnClick = () => {
 		const ok = window.confirm("정말 처음으로 돌아가시겠어요?");
 		if (ok) navigate("/");
 	};
 
-	const handleAnswerClick = (category: "IE" | "SN" | "TF" | "JP", option: string) => {
-		// 결과를 위한 옵션 계산 처리
-		console.log(category, option, answerData);
-
-		// 현재 질문이 12번이면 -> 결과를 수집중이에요 -> 결과 페이지로 이동
-		if (num === 12) navigate("/result");
+	const handleAnswerClick = useCallback((option: string) => {
+		setAnswers((prevAnswers) => prevAnswers + option);
 
 		// 다음 질문
 		setNum((prevNum) => prevNum + 1);
-	};
+	}, []);
 
-	// console.log(questionsList![num-1])
+	if (isLoading) return <Loading />;
+	if (isError) return <h2>에러가 발생했습니다.</h2>;
 
 	return (
 		<div className="px-5 flex flex-col relative mx-auto w-full max-w-[45rem] min-h-screen justify-between">
@@ -108,9 +129,9 @@ const QnA = () => {
 							>
 								{question.a.map((answer, idx) => (
 									<li
-										className="cursor-pointer flex flex-col gap-2 border-solid border-2 rounded-lg border-neutral-500 py-3 lg:py-5 px-5 active:border-stone-300 active:border-2 active:bg-neutral-500 active:-translate-y-1 duration-200 ease-in-out"
 										key={`${answer.option}${idx}`}
-										onClick={() => handleAnswerClick(question.type, answer.option)}
+										onClick={() => handleAnswerClick(answer.option)}
+										className="cursor-pointer flex flex-col gap-2 border-solid border-2 rounded-lg border-neutral-500 py-3 lg:py-5 px-5 active:border-stone-300 active:border-2 active:bg-neutral-500 active:-translate-y-1 duration-200 ease-in-out"
 									>
 										<span className="italic lg:text-base text-sm text-neutral-400">
 											{answer.dialogue}
