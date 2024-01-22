@@ -1,3 +1,7 @@
+export const MBTI = ["istj", "istp", "isfj", "isfp", "intj", "intp", "infj", "infp", "estj", "estp", "esfj", "esfp", "entj", "entp", "enfj", "enfp"];
+
+export type MbtiType = (typeof MBTI)[number];
+
 // 랜딩 페이지
 export const TITLE = "롤 MBTI 테스트";
 

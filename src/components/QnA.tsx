@@ -52,7 +52,7 @@ const QnA = () => {
 				mbti += "J";
 			else mbti += "P";
 
-			setResult(mbti);
+			setResult(mbti.toLowerCase());
 			setShowWaiting(true);
 		}
 	}, [num, answers]);
