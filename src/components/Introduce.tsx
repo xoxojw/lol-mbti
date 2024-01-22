@@ -28,7 +28,7 @@ const Introduce = () => {
         onClick={() => navigate("/test")}
         initial={{ opacity: 0, y: 0 }}
         animate={{ opacity: 1, y: 0, transition: { duration: 1, delay: 0.5 } }}
-        className="lg:text-xl bg-neutral-400 px-6 py-3 rounded-lg hover:bg-neutral-500 transition-all ease-in-out"
+        className="lg:text-xl bg-neutral-400 px-6 py-3 rounded-lg hover:bg-neutral-500"
       >
         시작하기
       </motion.button>

@@ -108,7 +108,7 @@ const QnA = () => {
 							>
 								{question.a.map((answer, idx) => (
 									<li
-										className="cursor-pointer flex flex-col gap-2 border-solid border-2 rounded-lg border-neutral-500 py-3 lg:py-5 px-5 hover:border-stone-300 hover:border-2 hover:bg-neutral-500 hover:-translate-y-1 duration-200 ease-in-out"
+										className="cursor-pointer flex flex-col gap-2 border-solid border-2 rounded-lg border-neutral-500 py-3 lg:py-5 px-5 active:border-stone-300 active:border-2 active:bg-neutral-500 active:-translate-y-1 duration-200 ease-in-out"
 										key={`${answer.option}${idx}`}
 										onClick={() => handleAnswerClick(question.type, answer.option)}
 									>
