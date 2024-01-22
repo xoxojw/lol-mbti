@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import logo from "../assets/logo.png";
-import { TITLE_INTRODUCE } from "../constants";
+import { TITLE } from "../constants";
 
 const Introduce = () => {
   const navigate = useNavigate();
@@ -18,11 +18,11 @@ const Introduce = () => {
           animate={{ opacity: 1, x: 0, transition: { duration: 1 } }}
         />
         <motion.h1
-          className="text-gray-100 font-OAGothicExtraBold text-center"
+          className="font-OAGothicExtraBold bg-gradient-to-r from-neutral-200 via-stone-400 to-neutral-200 text-transparent bg-clip-text"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0, transition: { duration: 1 } }}
         >
-          {TITLE_INTRODUCE}
+          {TITLE}
         </motion.h1>
       </motion.header>
       <motion.button
