@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import logo from "../assets/logo.png";
+import { TITLE_INTRODUCE } from "../constants";
 
 const Introduce = () => {
   const navigate = useNavigate();
@@ -21,7 +22,7 @@ const Introduce = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0, transition: { duration: 1 } }}
         >
-          롤 MBTI 테스트
+          {TITLE_INTRODUCE}
         </motion.h1>
       </motion.header>
       <motion.button
