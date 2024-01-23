@@ -4,16 +4,12 @@ import { useCallback, useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { getQnAList } from "api";
 
-import useClickBackBtn from "hooks/useClickBackBtn";
-
 import { motion } from "framer-motion";
-
-import Header from "components/Header";
-import ProgressBar from "components/ProgressBar";
 import Loading from "components/Loading";
+import Header from "./Header";
+import ProgressBar from "components/ProgressBar";
 
 import { QuestionType } from "types";
-
 
 const QnA = () => {
 	const navigate = useNavigate();
@@ -33,7 +29,7 @@ const QnA = () => {
 	});
 
 	useEffect(() => {
-		if (num > (questionsList?.length ?? 0) && answers !== null) {
+		if (num > 12 && answers !== null) {
 			let mbti = "";
 			// 결과 계산
 			// 1. I/E
@@ -59,10 +55,7 @@ const QnA = () => {
 			setResult(mbti.toLowerCase());
 			setShowWaiting(true);
 		}
-	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [num, answers]);
-
-	const handleBackBtnClick = useClickBackBtn({ setAnswers, setNum });
 
 	const handleAnswerClick = useCallback((option: string) => {
 		setAnswers((prevAnswers) => prevAnswers + option);
@@ -71,7 +64,13 @@ const QnA = () => {
 		setNum((prevNum) => prevNum + 1);
 	}, []);
 
-	if (isLoading) return <Loading loading={true} waiting={false} />;
+	if (isLoading)
+		return (
+			<Loading
+				loading={true}
+				waiting={false}
+			/>
+		);
 	if (isError) return <h2>에러가 발생했습니다.</h2>;
 
 	if (result && showWaiting) {
@@ -86,12 +85,17 @@ const QnA = () => {
 	return (
 		<>
 			{showWaiting ? (
-				<Loading loading={false} waiting={true} />
+				<Loading
+					loading={false}
+					waiting={true}
+				/>
 			) : (
 				<div className="px-5 flex flex-col relative mx-auto w-full max-w-[45rem] min-h-screen justify-between">
 					<Header
-            handleBackBtnClick={() => handleBackBtnClick(num)}
-          />
+						setAnswers={setAnswers}
+						currentNum={num}
+						setNum={setNum}
+					/>
 					<ProgressBar
 						currentNum={num}
 						listLength={questionsList?.length}
