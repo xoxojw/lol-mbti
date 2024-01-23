@@ -5,11 +5,11 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        summonersRift: "url('./assets/summoners_rift.webp')"
+        summonersRift: "url('./assets/images/summoners_rift.webp')"
       },
     },
     fontFamily: {
-      OAGothicExtraBold: ["OAGothic-ExtraBold"],
+      BeaufortforLOL: ["BeaufortforLOL"],
     },
   },
   variants: {

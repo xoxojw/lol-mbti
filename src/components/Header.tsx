@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { RiArrowLeftLine, RiHome2Line } from "@remixicon/react";
 
 interface HeaderProps {
@@ -7,10 +7,17 @@ interface HeaderProps {
 
 const Header = ({ handleBackBtnClick }: HeaderProps) => {
 	const navigate = useNavigate();
+	const { pathname } = useLocation();
+
 	const handleHomeBtnClick = () => {
-		const ok = window.confirm("정말 처음으로 돌아가시겠어요?");
-		if (ok) navigate("/");
+		if (pathname.includes("/result/")) {
+			navigate("/")
+		} else {
+			const ok = window.confirm("정말 처음으로 돌아가시겠어요?");
+			if (ok) navigate("/");
+		}
 	};
+	
 	return (
 		<header className="w-full py-5">
 			<ul className="flex justify-between text-stone-400">

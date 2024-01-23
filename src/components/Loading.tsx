@@ -1,4 +1,4 @@
-import poro from "assets/poro.webp";
+import poro from "assets/images/poro.webp";
 import { LoadingDots} from "./animation";
 import { LOADING_TEXT, WAITING_TEXT } from "../constants";
 
