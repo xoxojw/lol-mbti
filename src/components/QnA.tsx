@@ -4,12 +4,16 @@ import { useCallback, useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { getQnAList } from "api";
 
+import useClickBackBtn from "hooks/useClickBackBtn";
+
 import { motion } from "framer-motion";
-import { RiArrowLeftLine, RiHome2Line } from "@remixicon/react";
+
+import Header from "components/Header";
 import ProgressBar from "components/ProgressBar";
 import Loading from "components/Loading";
 
 import { QuestionType } from "types";
+
 
 const QnA = () => {
 	const navigate = useNavigate();
@@ -29,7 +33,7 @@ const QnA = () => {
 	});
 
 	useEffect(() => {
-		if (num > 12 && answers !== null) {
+		if (num > (questionsList?.length ?? 0) && answers !== null) {
 			let mbti = "";
 			// 결과 계산
 			// 1. I/E
@@ -55,23 +59,10 @@ const QnA = () => {
 			setResult(mbti.toLowerCase());
 			setShowWaiting(true);
 		}
+	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [num, answers]);
 
-	const handleBackBtnClick = useCallback(
-		(currentNum: number) => {
-			if (currentNum === 1) navigate("/");
-
-			setAnswers((prevAnswers) => prevAnswers.slice(0, -1));
-
-			setNum((prevNum) => prevNum - 1);
-		},
-		[navigate]
-	);
-
-	const handleHomeBtnClick = () => {
-		const ok = window.confirm("정말 처음으로 돌아가시겠어요?");
-		if (ok) navigate("/");
-	};
+	const handleBackBtnClick = useClickBackBtn({ setAnswers, setNum });
 
 	const handleAnswerClick = useCallback((option: string) => {
 		setAnswers((prevAnswers) => prevAnswers + option);
@@ -98,22 +89,9 @@ const QnA = () => {
 				<Loading loading={false} waiting={true} />
 			) : (
 				<div className="px-5 flex flex-col relative mx-auto w-full max-w-[45rem] min-h-screen justify-between">
-					<nav className="w-full py-5">
-						<ul className="flex justify-between text-stone-400">
-							<li
-								onClick={() => handleBackBtnClick(num)}
-								className="cursor-pointer"
-							>
-								<RiArrowLeftLine />
-							</li>
-							<li
-								onClick={handleHomeBtnClick}
-								className="cursor-pointer"
-							>
-								<RiHome2Line />
-							</li>
-						</ul>
-					</nav>
+					<Header
+            handleBackBtnClick={() => handleBackBtnClick(num)}
+          />
 					<ProgressBar
 						currentNum={num}
 						listLength={questionsList?.length}
