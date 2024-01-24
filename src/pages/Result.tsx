@@ -42,7 +42,7 @@ const Result = () => {
 					</li>
 				</ul>
 			</nav>
-			<div className="flex flex-grow mb-10 flex-col items-center justify-center w-full gap-10">
+			<div className="flex flex-grow mb-28 flex-col items-center justify-center w-full gap-10">
 				<div className="flex flex-col items-center justify-center text-neutral-500">
 					{resultImage && (
 						<img
