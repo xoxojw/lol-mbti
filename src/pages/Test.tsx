@@ -1,4 +1,5 @@
 import QnA from "components/QnA";
+import MetaData from "components/meta/MetaData";
 import { useEffect } from "react";
 
 const Test = () => {
@@ -16,6 +17,7 @@ const Test = () => {
 
   return (
     <>
+      <MetaData title="테스트 시작!" />
       <QnA />
     </>
   )

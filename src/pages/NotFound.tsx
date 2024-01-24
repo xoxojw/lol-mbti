@@ -1,10 +1,15 @@
+import MetaData from "components/meta/MetaData";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const NotFound = () => {
 	const navigate = useNavigate();
 	useEffect(() => navigate("/"));
-	return <></>;
+	return (
+		<>
+			<MetaData />
+		</>
+	);
 };
 
 export default NotFound;

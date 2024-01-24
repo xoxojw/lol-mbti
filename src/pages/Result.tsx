@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 
 import { MBTI, MbtiType } from "../constants";
 import { RiHome2Line, RiShareLine } from "@remixicon/react";
+import MetaData from "components/meta/MetaData";
 
 const Result = () => {
 	const navigate = useNavigate();
@@ -32,6 +33,7 @@ const Result = () => {
 
 	return (
 		<div className="px-5 flex flex-col relative mx-auto w-full max-w-[45rem] min-h-screen">
+			<MetaData title={result} />
 			<nav className="w-full py-5">
 				<ul className="flex justify-end text-stone-400">
 					<li
