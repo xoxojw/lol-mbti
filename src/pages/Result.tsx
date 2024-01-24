@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 import { MBTI, MbtiType } from "../constants";
-import { RiHome2Line, RiShareLine, RiSave3Line } from "@remixicon/react";
+import { RiHome2Line, RiShareLine } from "@remixicon/react";
 
 const Result = () => {
 	const navigate = useNavigate();
@@ -44,14 +44,12 @@ const Result = () => {
 			</nav>
 			<div className="flex flex-grow mb-10 flex-col items-center justify-center w-full gap-10">
 				<div className="flex flex-col items-center justify-center text-neutral-500">
-					{resultImage ? (
+					{resultImage && (
 						<img
 							src={resultImage}
 							alt="결과 이미지"
 							className="w-4/5"
 						/>
-					) : (
-						"이미지를 찾을 수 없습니다."
 					)}
 				</div>
 				<div className="flex flex-col items-center justify-center w-4/5 gap-5">
@@ -63,14 +61,6 @@ const Result = () => {
 							<RiShareLine className="w-4 lg:w-5 text-stone-700" />
 						</button>
 					</div>
-					{/* <div className="w-2/5 flex justify-between">
-						<p className="text-sm text-neutral-400">
-							이미지를 저장할 수 있습니다!
-						</p>
-						<button onClick={handleSaveImage}>
-							<RiSave3Line className="w-4 lg:w-5 text-stone-700" />
-						</button>
-					</div> */}
 				</div>
 			</div>
 		</div>
