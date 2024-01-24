@@ -6,7 +6,7 @@
 ## 🖼️ Preview
 ### 📱 Mobile - first
 
-<img src="https://github.com/xoxojw/lol-mbti/assets/124491335/400aa6c9-ee40-4f95-a86d-26800f9466ce" height="530px" /> | <img src="https://github.com/xoxojw/lol-mbti/assets/124491335/aa84b61e-a694-4191-b01d-677ac6161b8b" height="530px" /> | <img src="https://github.com/xoxojw/lol-mbti/assets/124491335/b0390b79-802c-4d68-b874-806f7d41bb89" height="530px" />
+<img src="https://github.com/xoxojw/lol-mbti/assets/124491335/51cf698a-2b04-4256-bb3b-5502b7f9f4fd" height="530px" /> | <img src="https://github.com/xoxojw/lol-mbti/assets/124491335/aa84b61e-a694-4191-b01d-677ac6161b8b" height="530px" /> | <img src="https://github.com/xoxojw/lol-mbti/assets/124491335/b0390b79-802c-4d68-b874-806f7d41bb89" height="530px" />
 ---|---|---|
 
 ### 🖥️ Desktop - responsive
