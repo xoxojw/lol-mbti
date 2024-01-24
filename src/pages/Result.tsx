@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 
 import { MBTI, MbtiType } from "../constants";
 import { RiHome2Line, RiShareLine } from "@remixicon/react";
+
 import MetaData from "components/meta/MetaData";
 
 const Result = () => {

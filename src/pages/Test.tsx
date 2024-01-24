@@ -1,6 +1,8 @@
-import QnA from "components/QnA";
-import MetaData from "components/meta/MetaData";
 import { useEffect } from "react";
+
+import QnA from "components/QnA";
+
+import MetaData from "components/meta/MetaData";
 
 const Test = () => {
   const preventClose = (e: BeforeUnloadEvent) => {
