@@ -43,7 +43,7 @@ const Result = () => {
 	const handleCopyClibBoard = async (url: string) => {
 		try {
 			await navigator.clipboard.writeText(url);
-			window.alert(resultpage.SUCCESS_TO_SAVE_URL);
+			window.alert(resultpage.SUCCESS_TO_COPY_URL);
 		} catch (err) {
 			console.log(err);
 		}

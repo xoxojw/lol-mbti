@@ -14,7 +14,7 @@ export const WAITING_TEXT = "결과를 수집하고 있어요.";
 
 // 결과 페이지
 export const resultpage = {
-  SUCCESS_TO_SAVE_URL: "결과 주소가 복사되었어요!",
+  SUCCESS_TO_COPY_URL: "결과 주소가 복사되었어요!",
   FAIL_TO_SAVE_IMAGE: "이미지를 저장하지 못했어요. 다시 시도해주세요!",
 } as const;
 

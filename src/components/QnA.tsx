@@ -71,10 +71,16 @@ const QnA = () => {
 				waiting={false}
 			/>
 		);
-	if (isError) return <h2>에러가 발생했습니다.</h2>;
+	if (isError) {
+		return (
+			<div className="flex justify-center items-center">
+				<h2>에러가 발생했습니다. 다시 시도해주세요!</h2>
+			</div>
+		)
+	};
 
 	if (result && showWaiting) {
-		// 5초 후에 `/result/${result}`로 쿼리 넘기기
+		// 5초 후에 `/result/${result}`로 쿼리 넘기면서 이동
 		setTimeout(() => {
 			if (result) {
 				navigate(`/result/${result}`);
