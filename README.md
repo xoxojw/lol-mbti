@@ -4,19 +4,6 @@
 
 <br>
 
-## 🖼️ Preview
-### 📱 Mobile - first
-
-<img src="https://github.com/xoxojw/lol-mbti/assets/124491335/51cf698a-2b04-4256-bb3b-5502b7f9f4fd" height="530px" /> | <img src="https://github.com/xoxojw/lol-mbti/assets/124491335/aa84b61e-a694-4191-b01d-677ac6161b8b" height="530px" /> | <img src="https://github.com/xoxojw/lol-mbti/assets/124491335/b0390b79-802c-4d68-b874-806f7d41bb89" height="530px" />
----|---|---|
-
-### 🖥️ Desktop - responsive
-<img src="https://github.com/xoxojw/lol-mbti/assets/124491335/324d63cb-30b0-4095-a173-adb7e2921157" height="280px" /> | <img src="https://github.com/xoxojw/lol-mbti/assets/124491335/73b55941-3221-494d-9ba7-a92a317477c3" height="280px" />
----|---|
-
-
-<br>
-
 ## 🛠️ Stacks
 ### Front-end
 
@@ -28,7 +15,30 @@
 ### Design
 <img src="https://img.shields.io/badge/figma-1e1e1e?style=for-the-badge&logo=figma&logoColor=F24E1E">
 
-![image](https://github.com/xoxojw/lol-mbti/assets/124491335/d99a6aba-bf10-48de-b20e-85e2ad91a6f9)
+<details>
+<summary>👀</summary>
+
+<br>
+
+  <img src="https://github.com/xoxojw/lol-mbti/assets/124491335/d99a6aba-bf10-48de-b20e-85e2ad91a6f9" />
+</details>
+
+<br>
+
+## 🖼️ Preview
+### 📱 Mobile - first
+
+<p align="center">
+  <img src="https://github.com/xoxojw/lol-mbti/assets/124491335/2a40ee5b-462a-4827-adce-c3e15f00e5d2" align="center" width="32%">
+  <img src="https://github.com/xoxojw/lol-mbti/assets/124491335/7eba2084-7881-4aa2-ae79-155c68da04c7" align="center" width="32%">
+  <img src="https://github.com/xoxojw/lol-mbti/assets/124491335/576e6d83-3eb5-429e-9f3b-15a933459acf9" align="center" width="32%">
+</p>
+
+### 🖥️ Desktop - responsive
+<p align="center">
+  <img src="https://github.com/xoxojw/lol-mbti/assets/124491335/10902ab5-10f9-48ad-902b-f97292b29cda" align="center" width="49%"/>
+  <img src="https://github.com/xoxojw/lol-mbti/assets/124491335/79637a58-c5d5-4865-8f63-3cec317524eb" align="center" width="49%" />
+</p>
 
 <br>
 
