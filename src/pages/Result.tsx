@@ -54,9 +54,9 @@ const Result = () => {
 						"이미지를 찾을 수 없습니다."
 					)}
 				</div>
-				<div className="flex flex-col items-center justify-center w-full gap-5">
-					<div className="w-2/5 flex justify-between">
-						<p className="text-sm text-neutral-400">
+				<div className="flex flex-col items-center justify-center w-4/5 gap-5">
+					<div className="flex mx-auto items-center gap-x-4">
+						<p className="lg:text-sm text-xs text-neutral-400">
 							다른 사람들과 결과를 공유해보세요!
 						</p>
 						<button onClick={() => handleCopyClibBoard(window.location.href)}>

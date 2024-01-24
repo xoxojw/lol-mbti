@@ -1,14 +1,14 @@
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import logo from "../assets/images/logo.png";
-import { TITLE } from "../constants";
+import { MAIN_TITLE, MAIN_DESCRIPTION } from "../constants";
 
 const Introduce = () => {
   const navigate = useNavigate();
   return (
     <div className="flex flex-col gap-y-12 mb-10 lg:mb-0 select-none">
       <motion.header
-        className="flex flex-col items-center gap-5"
+        className="flex flex-col items-center gap-7"
       >
         <motion.img
           src={logo}
@@ -17,13 +17,20 @@ const Introduce = () => {
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0, transition: { duration: 1 } }}
         />
-        <motion.h1
-          className="bg-gradient-to-r from-neutral-200 via-stone-400 to-neutral-200 text-transparent bg-clip-text"
+        <motion.div
+          className="flex flex-col justify-center items-center gap-2"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0, transition: { duration: 1 } }}
         >
-          {TITLE}
-        </motion.h1>
+          <h1
+            className="bg-gradient-to-r from-neutral-200 via-stone-400 to-neutral-200 text-transparent bg-clip-text"
+          >
+            {MAIN_TITLE}
+          </h1>
+          <p className="text-neutral-400 lg:text-lg">
+            {MAIN_DESCRIPTION}
+          </p>
+        </motion.div>
       </motion.header>
       <motion.button
         onClick={() => navigate("/test")}
