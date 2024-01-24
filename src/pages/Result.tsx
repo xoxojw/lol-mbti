@@ -4,6 +4,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import { MBTI, MbtiType } from "../constants";
 import { RiHome2Line, RiShareLine } from "@remixicon/react";
 
+import { motion } from "framer-motion";
+
 import MetaData from "components/meta/MetaData";
 
 const Result = () => {
@@ -45,7 +47,10 @@ const Result = () => {
 					</li>
 				</ul>
 			</nav>
-			<div className="flex flex-grow mb-28 flex-col items-center justify-center w-full gap-10">
+			<motion.div
+				initial={{ opacity: 0, y: -50 }}
+				animate={{ opacity: 1, y: 0, transition: { duration: 1 } }}
+				className="flex flex-grow mb-28 flex-col items-center justify-center w-full gap-10">
 				<div className="flex flex-col items-center justify-center text-neutral-500">
 					{resultImage && (
 						<img
@@ -56,16 +61,19 @@ const Result = () => {
 					)}
 				</div>
 				<div className="flex flex-col items-center justify-center w-4/5 gap-5">
-					<div className="flex mx-auto items-center gap-x-4">
+					<motion.div
+						initial={{ opacity: 0, y: -50 }}
+						animate={{ opacity: 1, y: 0, transition: { duration: 1, delay: 1 } }}
+						className="flex mx-auto items-center gap-x-4">
 						<p className="lg:text-sm text-xs text-neutral-400">
 							다른 사람들과 결과를 공유해보세요!
 						</p>
 						<button onClick={() => handleCopyClibBoard(window.location.href)}>
 							<RiShareLine className="w-4 lg:w-5 text-stone-700" />
 						</button>
-					</div>
+					</motion.div>
 				</div>
-			</div>
+			</motion.div>
 		</div>
 	);
 };
