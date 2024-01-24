@@ -6,11 +6,11 @@
 ## 🖼️ Preview
 ### 📱 Mobile - first
 
-<img src="https://github.com/xoxojw/lol-mbti/assets/124491335/400aa6c9-ee40-4f95-a86d-26800f9466ce" height="500px" /> | <img src="https://github.com/xoxojw/lol-mbti/assets/124491335/aa84b61e-a694-4191-b01d-677ac6161b8b" height="500px" />
----|---|
+<img src="https://github.com/xoxojw/lol-mbti/assets/124491335/400aa6c9-ee40-4f95-a86d-26800f9466ce" height="530px" /> | <img src="https://github.com/xoxojw/lol-mbti/assets/124491335/aa84b61e-a694-4191-b01d-677ac6161b8b" height="530px" /> | <img src="https://github.com/xoxojw/lol-mbti/assets/124491335/b0390b79-802c-4d68-b874-806f7d41bb89" height="530px" />
+---|---|---|
 
 ### 🖥️ Desktop - responsive
-<img src="https://github.com/xoxojw/lol-mbti/assets/124491335/324d63cb-30b0-4095-a173-adb7e2921157" height="300px" /> | <img src="https://github.com/xoxojw/lol-mbti/assets/124491335/73b55941-3221-494d-9ba7-a92a317477c3" height="300px" />
+<img src="https://github.com/xoxojw/lol-mbti/assets/124491335/324d63cb-30b0-4095-a173-adb7e2921157" height="280px" /> | <img src="https://github.com/xoxojw/lol-mbti/assets/124491335/73b55941-3221-494d-9ba7-a92a317477c3" height="280px" />
 ---|---|
 
 
@@ -23,6 +23,19 @@
 
 ### Deployment
 <img src="https://img.shields.io/badge/glitch-1e1e1e?style=for-the-badge&logo=glitch&logoColor=3333FF"> <img src="https://img.shields.io/badge/vercel-1e1e1e?style=for-the-badge&logo=vercel&logoColor=white">
+
+### Design
+<img src="https://img.shields.io/badge/figma-1e1e1e?style=for-the-badge&logo=figma&logoColor=F24E1E">
+
+![image](https://github.com/xoxojw/lol-mbti/assets/124491335/d99a6aba-bf10-48de-b20e-85e2ad91a6f9)
+
+<br>
+
+## 📊 References
+- 이미지 : [Champions - Riot Games](https://www.leagueoflegends.com/en-pl/champions/)
+- 폰트 : [타이포그래피 - Riot Games](https://brand.riotgames.com/ko-kr/league-of-legends/typography/)
+- 챔피언별 MBTI : [Personality Database](https://www.personality-database.com/profile?pid=2&cid=11&sub_cat_id=434)
+- MBTI 설명 : [16personalities](https://www.16personalities.com/ko)
 
 <br>
 <br>
