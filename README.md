@@ -1,5 +1,6 @@
 # <img src="https://github.com/xoxojw/lol-mbti/assets/124491335/5b927b4f-68b1-482d-973f-5836f98a035d" width="60px" /> 롤 MBTI 테스트
 💭 나와 같은 MBTI를 가진 챔피언은 누가 있을까? <a href="https://www.lolmbti.site/" target="_blank">테스트 하러가기</a>
+> 제작 기간 : 24. 1. 20 ~ 24. 1. 24
 
 <br>
 
