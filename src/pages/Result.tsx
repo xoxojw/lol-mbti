@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-import { MBTI, MbtiType } from "../constants";
+import { MBTI, MbtiType, resultpage } from "../constants";
 import { RiHome2Line, RiShareLine, RiDownload2Line } from "@remixicon/react";
 
 import { motion } from "framer-motion";
@@ -36,14 +36,14 @@ const Result = () => {
 			
       document.body.removeChild(link);
 		} else {
-			window.alert("이미지를 저장하지 못했어요. 다시 시도해주세요!")
+			window.alert(resultpage.FAIL_TO_SAVE_IMAGE)
 		}
   };
 
 	const handleCopyClibBoard = async (url: string) => {
 		try {
 			await navigator.clipboard.writeText(url);
-			window.alert("결과 주소가 복사되었어요!");
+			window.alert(resultpage.SUCCESS_TO_SAVE_URL);
 		} catch (err) {
 			console.log(err);
 		}

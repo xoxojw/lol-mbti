@@ -2,6 +2,7 @@ import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { RiArrowLeftLine, RiHome2Line } from "@remixicon/react";
+import { CONFIRM_GO_TO_MAIN } from "../constants";
 
 interface HeaderProps {
 	setAnswers: React.Dispatch<React.SetStateAction<string>>;
@@ -12,7 +13,7 @@ interface HeaderProps {
 const Header = ({setAnswers, currentNum, setNum}: HeaderProps) => {
 	const navigate = useNavigate();
 	const handleHomeBtnClick = () => {
-		const ok = window.confirm("정말 처음으로 돌아가시겠어요?");
+		const ok = window.confirm(CONFIRM_GO_TO_MAIN);
 		if (ok) navigate("/");
 	};
 

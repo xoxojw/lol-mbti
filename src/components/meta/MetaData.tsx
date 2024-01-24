@@ -1,3 +1,4 @@
+import { MAIN_TITLE } from "../../constants";
 import { Helmet } from "react-helmet-async";
 
 interface Props {
@@ -7,8 +8,8 @@ interface Props {
 const MetaData = ({ title }: Props) => {
   return (
     <Helmet>
-      <meta property="og:title" content="롤 MBTI 테스트" />
-      <title>{title ? `${title} - 롤 MBTI 테스트` : "롤 MBTI 테스트"}</title>
+      <meta property="og:title" content={title ? `${title} - ${MAIN_TITLE}` : MAIN_TITLE} />
+      <title>{title ? `${title} - ${MAIN_TITLE}` : MAIN_TITLE}</title>
     </Helmet>
   );
 };
