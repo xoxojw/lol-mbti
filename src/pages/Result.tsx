@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 import { MBTI, MbtiType } from "../constants";
-import { RiHome2Line, RiShareLine } from "@remixicon/react";
+import { RiHome2Line, RiShareLine, RiDownload2Line } from "@remixicon/react";
 
 import { motion } from "framer-motion";
 
@@ -25,6 +25,21 @@ const Result = () => {
 		}
 	}, [isValidMbti, navigate, result]);
 
+	const handleDownloadImage = () => {
+    if (resultImage) {
+			const link = document.createElement("a");
+      link.href = resultImage;
+      link.download = `${result!.toLowerCase()}.png`;
+
+      document.body.appendChild(link);
+			link.click();
+			
+      document.body.removeChild(link);
+		} else {
+			window.alert("이미지를 저장하지 못했어요. 다시 시도해주세요!")
+		}
+  };
+
 	const handleCopyClibBoard = async (url: string) => {
 		try {
 			await navigator.clipboard.writeText(url);
@@ -32,7 +47,7 @@ const Result = () => {
 		} catch (err) {
 			console.log(err);
 		}
-  };  
+  };
 
 	return (
 		<div className="px-5 flex flex-col relative mx-auto w-full max-w-[45rem] min-h-screen">
@@ -60,17 +75,27 @@ const Result = () => {
 						/>
 					)}
 				</div>
-				<div className="flex flex-col items-center justify-center w-4/5 gap-5">
+				<div className="flex flex-col items-center justify-center w-60 lg:w-80">
 					<motion.div
 						initial={{ opacity: 0, y: -50 }}
 						animate={{ opacity: 1, y: 0, transition: { duration: 1, delay: 1 } }}
-						className="flex mx-auto items-center gap-x-4">
-						<p className="lg:text-sm text-xs text-neutral-400">
-							다른 사람들과 결과를 공유해보세요!
-						</p>
-						<button onClick={() => handleCopyClibBoard(window.location.href)}>
-							<RiShareLine className="w-4 lg:w-5 text-stone-700" />
-						</button>
+						className="flex flex-col gap-3 w-full">
+						<div className="flex items-center justify-between">
+							<p className="lg:text-sm text-xs text-neutral-400">
+								결과 이미지 저장하기
+							</p>
+							<button onClick={handleDownloadImage}>
+								<RiDownload2Line className="w-4 lg:w-5 text-stone-700" />
+							</button>
+						</div>
+						<div className="flex items-center justify-between">
+							<p className="lg:text-sm text-xs text-neutral-400">
+								다른 사람에게 결과를 공유해보세요!
+							</p>
+							<button onClick={() => handleCopyClibBoard(window.location.href)}>
+								<RiShareLine className="w-4 lg:w-5 text-stone-700" />
+							</button>
+						</div>
 					</motion.div>
 				</div>
 			</motion.div>
