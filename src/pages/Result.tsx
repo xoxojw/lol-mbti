@@ -55,7 +55,7 @@ const Result = () => {
 
 	return (
 		<div className="px-5 flex flex-col relative mx-auto w-full max-w-[45rem] min-h-screen">
-			<MetaData title={result} />
+			<MetaData title={result} description={`테스트 결과 - ${result}`} />
 			<nav className="w-full py-5">
 				<ul className="flex justify-end text-stone-400">
 					<li
