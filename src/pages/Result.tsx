@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 import { MBTI, MbtiType, resultpage } from "../constants";
-import { RiHome2Line, RiShareLine, RiDownload2Line } from "@remixicon/react";
+import { RiHome2Line, RiShareLine, RiDownload2Line, RiLoopLeftLine } from "@remixicon/react";
 
 import { motion } from "framer-motion";
 
@@ -47,7 +47,11 @@ const Result = () => {
 		} catch (err) {
 			console.log(err);
 		}
-  };
+	};
+	
+	const handleResetTest = () => {
+		navigate("/test")
+	}
 
 	return (
 		<div className="px-5 flex flex-col relative mx-auto w-full max-w-[45rem] min-h-screen">
@@ -94,6 +98,14 @@ const Result = () => {
 							</p>
 							<button onClick={() => handleCopyClibBoard(window.location.href)}>
 								<RiShareLine className="w-4 lg:w-5 text-stone-700" />
+							</button>
+						</div>
+						<div className="flex items-center justify-between">
+							<p className="lg:text-sm text-xs text-neutral-400">
+								테스트 다시 해보기
+							</p>
+							<button onClick={handleResetTest}>
+								<RiLoopLeftLine className="w-4 lg:w-5 text-stone-700" />
 							</button>
 						</div>
 					</motion.div>
