@@ -3,7 +3,7 @@ export const MBTI = ["istj", "istp", "isfj", "isfp", "intj", "intp", "infj", "in
 export type MbtiType = (typeof MBTI)[number];
 
 // 랜딩 페이지
-export const MAIN_TITLE = "롤 MBTI 테스트";
+export const MAIN_TITLE = "나와 MBTI 같은 롤 챔피언 찾기";
 export const MAIN_DESCRIPTION = "나와 같은 MBTI를 가진 챔피언은 누가 있을까?";
 
 // 로딩 화면
