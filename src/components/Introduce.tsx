@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import logo from "../assets/images/logo.png";
-import { MAIN_TITLE, MAIN_DESCRIPTION } from "../constants";
+import { MAIN_DESCRIPTION } from "../constants";
 
 const Introduce = () => {
   const navigate = useNavigate();
@@ -25,7 +25,7 @@ const Introduce = () => {
           <h1
             className="bg-gradient-to-r from-neutral-200 via-stone-400 to-neutral-200 text-transparent bg-clip-text"
           >
-            {MAIN_TITLE}
+            롤 MBTI 테스트
           </h1>
           <p className="text-neutral-400 lg:text-lg">
             {MAIN_DESCRIPTION}
